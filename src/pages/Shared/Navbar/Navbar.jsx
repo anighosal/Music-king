@@ -1,25 +1,18 @@
 import React from "react";
 import { FaMusic } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navList = (
     <>
       <li>
-        <a>Item 1</a>
+        <Link to="/">Home</Link>
       </li>
       <li>
-        <a>Parent</a>
-        <ul className="p-2">
-          <li>
-            <a>Submenu 1</a>
-          </li>
-          <li>
-            <a>Submenu 2</a>
-          </li>
-        </ul>
+        <Link to="/instructors">Instructors</Link>
       </li>
       <li>
-        <a>Item 3</a>
+        <Link to="/classes">Classes</Link>
       </li>
     </>
   );
@@ -56,20 +49,7 @@ const Navbar = () => {
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li tabIndex={0}>
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2">{navList}</ul>
-              </details>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul>
+          <ul className="menu menu-horizontal px-1">{navList}</ul>
         </div>
         <div className="navbar-end">
           <a className="btn">Button</a>

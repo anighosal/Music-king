@@ -26,7 +26,7 @@ const Navbar = () => {
       {user?.photoURL ? (
         <>
           <img
-            className="rounded-xl w-10 h-10 mr-2"
+            className="rounded-2xl w-8 h-8 mr-2"
             src={user?.photoURL}
             alt=""
           />

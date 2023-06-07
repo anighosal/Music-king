@@ -1,0 +1,115 @@
+[
+    {
+      "_id": "642c155b2c4774f05c36eeaa", 
+      "musicInstructorName": "John Smith",
+      "instructorImage": "https://imgtr.ee/images/2023/06/07/phVYl.jpg",
+      "instructorEmail": "johnsmith@example.com",
+      "className": "Guitar Basics",
+      "classImage": "https://imgtr.ee/images/2023/06/07/phWs3.jpg",
+      "availableSeats": 10,
+      "numberOfStudents": 15,
+      "classPrice": 50
+    },
+    {
+      "_id": "642c155b2c4774f05c36eeb9",
+      "musicInstructorName": "Jane Doe",
+      "instructorImage": "https://imgtr.ee/images/2023/06/07/phhOL.jpg",
+      "instructorEmail": "janedoe@example.com",
+      "className": "Piano Masterclass",
+      "classImage": "https://imgtr.ee/images/2023/06/07/phCAF.jpg",
+      "availableSeats": 5,
+      "numberOfStudents": 12,
+      "classPrice": 75
+    },
+    {
+      "_id": "642c155b2c4774f05c36ee7c",
+      "musicInstructorName": "David Johnson",
+      "instructorImage": "https://imgtr.ee/images/2023/06/07/phIHm.jpg",
+      "instructorEmail": "davidjohnson@example.com",
+      "className": "Drumming Techniques",
+      "classImage": "https://imgtr.ee/images/2023/06/07/phslU.jpg",
+      "availableSeats": 8,
+      "numberOfStudents": 10,
+      "classPrice": 60
+    },
+    { 
+      "_id": "642c155b2c4774f05c36ee88",
+      "musicInstructorName": "Emma Davis",
+      "instructorImage": "https://imgtr.ee/images/2023/06/07/phBfQ.jpg",
+      "instructorEmail": "davidjohnson@example.com",
+      "className": "Violin Masterclass",
+      "classImage": "https://imgtr.ee/images/2023/06/07/phcnR.jpg",
+      "availableSeats": 8,
+      "numberOfStudents": 11,
+      "classPrice": 60
+    },
+    { 
+      "_id": "642c155b2c4774f05c36ee7a",
+      "musicInstructorName": "Robert Wilson",
+      "instructorImage": "https://imgtr.ee/images/2023/06/07/phuYI.jpg",
+      "instructorEmail": "davidjohnson@example.com",
+      "className": "Piano for Beginners",
+      "classImage": "https://imgtr.ee/images/2023/06/07/phFtb.jpg",
+      "availableSeats": 8,
+      "numberOfStudents": 16,
+      "classPrice": 60
+    },
+    { 
+      "_id": "642c155b2c4774f05c36ee8c",
+      "musicInstructorName": "Sophia Martinez",
+      "instructorImage": "https://imgtr.ee/images/2023/06/07/phiR7.jpg",
+      "instructorEmail": "davidjohnson@example.com",
+      "className": "Jazz Improvisation",
+      "classImage": "https://imgtr.ee/images/2023/06/07/phjbA.jpg",
+      "availableSeats": 8,
+      "numberOfStudents": 14,
+      "classPrice": 60
+    },
+    { 
+      "_id": "642c155b2c4774f05c36ee94",
+      "musicInstructorName": "Daniel Evans",
+      "instructorImage": "https://imgtr.ee/images/2023/06/07/ph3h2.jpg",
+      "instructorEmail": "davidjohnson@example.com",
+      "className": "Flute Fundamentals",
+      "classImage": "https://imgtr.ee/images/2023/06/07/phHlx.jpg",
+      "availableSeats": 8,
+      "numberOfStudents": 13,
+      "classPrice": 60
+    },
+   
+    {
+      "_id": "642c155b2c4774f05c36ee9e",
+      "musicInstructorName": "Olivia Brown",
+      "instructorImage": "https://imgtr.ee/images/2023/06/07/phXNJ.jpg",
+      "instructorEmail": "davidjohnson@example.com",
+      "className": "Saxophone Ensemble",
+      "classImage": "https://imgtr.ee/images/2023/06/07/phgfi.jpg",
+      "availableSeats": 8,
+      "numberOfStudents": 8,
+      "classPrice": 60
+    },
+    {
+      "_id": "642c155b2c4774f05c36eea6",
+      "musicInstructorName": "Ryan Adams",
+      "instructorImage": "https://imgtr.ee/images/2023/06/07/p4Gnr.jpg",
+      "instructorEmail": "davidjohnson@example.com",
+      "className": "Music Theory Foundations",
+      "classImage": "https://imgtr.ee/images/2023/06/07/p4MZn.jpg",
+      "availableSeats": 8,
+      "numberOfStudents": 9,
+      "classPrice": 60
+    },
+    {
+      "_id": "642c155b2c4774f05c36eeaf",
+      "musicInstructorName": "Michael Johnson",
+      "instructorImage": "https://imgtr.ee/images/2023/06/07/p4Otc.jpg",
+      "instructorEmail": "davidjohnson@example.com",
+      "className": "Bass Guitar Basics",
+      "classImage": "https://imgtr.ee/images/2023/06/07/p4oRY.jpg",
+      "availableSeats": 8,
+      "numberOfStudents": 7,
+      "classPrice": 60
+    }
+   
+    
+  ]

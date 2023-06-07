@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaMusic } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProviders";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   const navList = (
     <>
       <li>
@@ -14,9 +22,20 @@ const Navbar = () => {
       <li>
         <Link to="/classes">Classes</Link>
       </li>
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
+
+      {user ? (
+        <>
+          <button onClick={handleLogOut} className="btn btn-ghost">
+            Logout
+          </button>
+        </>
+      ) : (
+        <>
+          <li>
+            <Link to="/login">Login</Link>{" "}
+          </li>
+        </>
+      )}
     </>
   );
   return (

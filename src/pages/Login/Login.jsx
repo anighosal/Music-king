@@ -1,19 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
 import login from "../../assets/undraw_snow_games_tq9r.svg";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { AuthContext } from "../../providers/AuthProviders";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const {
     register,
     handleSubmit,
-    watch,
 
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(watch("email"));
+  const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const onSubmit = (data) => {
+    console.log(data);
+    signIn(data.email, data.password).then((result) => {
+      const user = result.user;
+      console.log(user);
+
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "user successfully login",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      navigate(from, { replace: true });
+    });
+  };
+
   return (
     <>
       <Helmet>
@@ -26,6 +46,7 @@ const Login = () => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+              <h2 className="text-center font-bold text-2xl">Please Login</h2>
               <div className="div-control">
                 <label className="label">
                   <span className="label-text">Email</span>

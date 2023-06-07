@@ -5,6 +5,7 @@ import Instructors from "../pages/Instructors/Instructors/Instructors";
 import Classes from "../pages/Classes/Classes/Classes";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import Errorpage from "../Errorpage/Errorpage";
 
 export const router = createBrowserRouter([
   {
@@ -32,5 +33,9 @@ export const router = createBrowserRouter([
         element: <Register></Register>,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <Errorpage></Errorpage>,
   },
 ]);

@@ -23,8 +23,14 @@ const Navbar = () => {
         <Link to="/classes">Classes</Link>
       </li>
 
-      {user ? (
+      {user?.photoURL ? (
         <>
+          <img
+            className="rounded-xl w-10 h-10 mr-2"
+            src={user?.photoURL}
+            alt=""
+          />
+          <p className="text-xl">{user?.displayName}</p>
           <button onClick={handleLogOut} className="btn btn-ghost">
             Logout
           </button>

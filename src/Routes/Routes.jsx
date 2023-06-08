@@ -9,6 +9,7 @@ import Classes from "../pages/Classes/Classes";
 import Dshboard from "../Layout/Dshboard";
 import MySelect from "../pages/Dashboard/MySelect/MySelect";
 import Instructors from "../pages/Instructors/Instructors";
+import MyEnroll from "../pages/Dashboard/MyEnroll/MyEnroll";
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
       {
         path: "myselect",
         element: <MySelect></MySelect>,
+      },
+      {
+        path: "myenroll",
+        element: <MyEnroll></MyEnroll>,
       },
     ],
   },

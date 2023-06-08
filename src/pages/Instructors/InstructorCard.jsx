@@ -12,7 +12,7 @@ const InstructorCard = ({ instructor }) => {
           <h2 className="card-title">Name: {musicInstructorName}</h2>
           <p className="text-blue-500 font-bold">Email: {instructorEmail}</p>
           <div className="card-actions justify-center">
-            <button className="btn btn-primary w-full">Buy Now</button>
+            <button className="btn btn-primary w-full">Details</button>
           </div>
         </div>
       </div>

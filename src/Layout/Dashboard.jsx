@@ -11,6 +11,7 @@ import {
 
 const Dashboard = () => {
   // todo load data from the server to have dynamic isAdmoin based on data
+  const { isAdmin } = true;
 
   return (
     <div className="drawer lg:drawer-open">

@@ -12,8 +12,9 @@ import Instructors from "../pages/Instructors/Instructors";
 import MyEnroll from "../pages/Dashboard/MyEnroll/MyEnroll";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
-import PrivateRoute from "./PrivateRoute";
+
 import Dashboard from "../Layout/Dashboard";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
     path: "dashboard",
     element: <Dashboard></Dashboard>,
     children: [
+      {
+        path: "alluser",
+        element: <AllUsers></AllUsers>,
+      },
       {
         path: "userhome",
         element: <UserHome></UserHome>,

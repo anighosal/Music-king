@@ -8,17 +8,20 @@ const Classes = () => {
 
   useEffect(() => {
     fetch("https://my-12th-work-server.vercel.app/musicData")
-      .then((res) => res.json)
+      .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        setClasses(data);
       });
   }, []);
   return (
-    <div>
+    <div className="pt-[200px]">
       <Helmet>
         <title>Music King | Classes</title>
       </Helmet>
-      <div>
+      <h2 className="text-center font-bold text-3xl text-red-800 mb-6">
+        Our All Class
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {classes.map((singleClass) => (
           <ClassCard
             key={singleClass._Id}

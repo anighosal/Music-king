@@ -7,6 +7,8 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Errorpage from "../Errorpage/Errorpage";
 import Classes from "../pages/Classes/Classes";
+import Dshboard from "../Layout/Dshboard";
+import MySelect from "../pages/Dashboard/MySelect/MySelect";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +37,17 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "dashboard",
+    element: <Dshboard></Dshboard>,
+    children: [
+      {
+        path: "myselect",
+        element: <MySelect></MySelect>,
+      },
+    ],
+  },
+
   {
     path: "*",
     element: <Errorpage></Errorpage>,

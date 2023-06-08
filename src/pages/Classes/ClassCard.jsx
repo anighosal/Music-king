@@ -10,19 +10,17 @@ const ClassCard = ({ singleClass }) => {
   } = singleClass;
   return (
     <div>
-      <h2>card</h2>
       <div className="card card-side bg-base-100 shadow-xl">
         <figure>
-          <img
-            src="/images/stock/photo-1635805737707-575885ab0820.jpg"
-            alt="Movie"
-          />
+          <img className="h-full" w-20 src={classImage} />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">New movie is released!</h2>
-          <p>Click the button to watch on Jetflix app.</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Watch</button>
+          <h2 className="card-title">{className}</h2>
+          <p className="font-bold">Instructor :{musicInstructorName}</p>
+          <p>Available Seats: {availableSeats}</p>
+          <p className="text-red-700 font-bold">Price:$ {classPrice}</p>
+          <div className="card-actions">
+            <button className="btn btn-primary">Select Class</button>
           </div>
         </div>
       </div>

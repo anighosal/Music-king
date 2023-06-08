@@ -17,7 +17,7 @@ import slide8 from "../../../assets/song8.avif";
 const ExtraSection = () => {
   return (
     <>
-      <h2 className="text-center font-bold text-2xl text-blue-800 mb-7">
+      <h2 className="text-center font-bold text-2xl text-blue-800 mb-7 mt-6">
         ---- Our Programmes ----
       </h2>
 

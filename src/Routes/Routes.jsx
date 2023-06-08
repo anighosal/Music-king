@@ -14,7 +14,8 @@ import Payment from "../pages/Dashboard/Payment/Payment";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 
 import Dashboard from "../Layout/Dashboard";
-import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+
+import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 
 export const router = createBrowserRouter([
   {
@@ -48,8 +49,8 @@ export const router = createBrowserRouter([
     element: <Dashboard></Dashboard>,
     children: [
       {
-        path: "alluser",
-        element: <AllUsers></AllUsers>,
+        path: "manageusers",
+        element: <ManageUsers></ManageUsers>,
       },
       {
         path: "userhome",

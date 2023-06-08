@@ -11,7 +11,7 @@ import {
 
 const Dashboard = () => {
   // todo load data from the server to have dynamic isAdmoin based on data
-  const { isAdmin } = true;
+  const isAdmin = true;
 
   return (
     <div className="drawer lg:drawer-open">
@@ -42,14 +42,8 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/dashboard/myenroll">
+                  <NavLink to="/dashboard/manageusers">
                     <FaSchool></FaSchool> Manage Users
-                  </NavLink>
-                </li>
-
-                <li>
-                  <NavLink to="/dashboard/allusers">
-                    <FaWallet></FaWallet> All users
                   </NavLink>
                 </li>
               </>

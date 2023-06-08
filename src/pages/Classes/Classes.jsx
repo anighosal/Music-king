@@ -9,7 +9,9 @@ const Classes = () => {
   useEffect(() => {
     fetch("https://my-12th-work-server.vercel.app/musicData")
       .then((res) => res.json)
-      .then((data) => setClasses(data));
+      .then((data) => {
+        console.log(data);
+      });
   }, []);
   return (
     <div>
@@ -19,7 +21,7 @@ const Classes = () => {
       <div>
         {classes.map((singleClass) => (
           <ClassCard
-            key={singleClass._id}
+            key={singleClass._Id}
             singleClass={singleClass}
           ></ClassCard>
         ))}

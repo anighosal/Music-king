@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 
 const Dashboard = () => {
+  // todo load data from the server to have dynamic isAdmoin based on data
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -26,28 +27,55 @@ const Dashboard = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <Fade>
           <ul className="menu p-4 w-80 h-full  text-white">
-            {/* Sidebar content here */}
-            <li>
-              <NavLink to="/dashboard/userhome">
-                <FaHome></FaHome> User Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard/myselect">
-                <FaUserFriends></FaUserFriends> My Selected Classes
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard/myenroll">
-                <FaSchool></FaSchool> My Enrolled Classes
-              </NavLink>
-            </li>
+            {isAdmin ? (
+              <>
+                <li>
+                  <NavLink to="/dashboard/userhome">
+                    <FaHome></FaHome> Admin Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/myselect">
+                    <FaUserFriends></FaUserFriends> Manage Classes
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/myenroll">
+                    <FaSchool></FaSchool> Manage Users
+                  </NavLink>
+                </li>
 
-            <li>
-              <NavLink to="/dashboard/payment">
-                <FaWallet></FaWallet> Student Payment
-              </NavLink>
-            </li>
+                <li>
+                  <NavLink to="/dashboard/allusers">
+                    <FaWallet></FaWallet> All users
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <NavLink to="/dashboard/userhome">
+                    <FaHome></FaHome> User Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/myselect">
+                    <FaUserFriends></FaUserFriends> My Selected Classes
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/myenroll">
+                    <FaSchool></FaSchool> My Enrolled Classes
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink to="/dashboard/payment">
+                    <FaWallet></FaWallet> Student Payment
+                  </NavLink>
+                </li>
+              </>
+            )}
 
             <div className="divider"></div>
             <li>

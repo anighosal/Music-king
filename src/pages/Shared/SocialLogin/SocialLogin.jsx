@@ -13,7 +13,21 @@ const SocialLogin = () => {
     googleSignIn().then((result) => {
       const loggedInUser = result.user;
       console.log(loggedInUser);
-      navigate(from, { replace: true });
+      const saveUser = {
+        name: loggedInUser.displayName,
+        email: loggedInUser.email,
+      };
+      fetch("https://my-12th-work-server.vercel.app/users", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(saveUser),
+      })
+        .then((res) => res.json())
+        .then(() => {
+          navigate(from, { replace: true });
+        });
     });
   };
   return (

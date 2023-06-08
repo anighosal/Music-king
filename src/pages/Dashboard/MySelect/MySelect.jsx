@@ -1,11 +1,22 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import useMySelect from "../../../hooks/useMySelect";
+import { FaMoneyBill, FaRegUserCircle, FaTrash } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const MySelect = () => {
   const [cart, refetch] = useMySelect();
+  const handleDelete = (singleClass) => {
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
   return (
-    <div>
+    <div className="lg:w-full">
       <Helmet>
         <title>Music King | My selected Classes</title>
       </Helmet>
@@ -19,6 +30,7 @@ const MySelect = () => {
               <th>Class Name</th>
               <th>Instructor Name</th>
               <th>Price</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -43,9 +55,20 @@ const MySelect = () => {
                     {singleClass.musicInstructorName}
                   </div>
                 </td>
-                <td>{singleClass.classPrice}</td>
-                <td>
-                  <button className="btn btn-ghost btn-xs">details</button>
+                <td className="text-red-500">$ {singleClass.classPrice}</td>
+                <td className="grid grid-cols-1 gap-2">
+                  <button
+                    onClick={() => handleDelete(singleClass)}
+                    className="btn btn-ghost btn-sm"
+                  >
+                    <FaTrash></FaTrash>
+                  </button>
+                  <button className="btn btn-ghost btn-sm ">
+                    <FaMoneyBill></FaMoneyBill>
+                  </button>
+                  <button className="btn btn-ghost btn-sm ">
+                    <FaRegUserCircle></FaRegUserCircle>
+                  </button>
                 </td>
               </tr>
             ))}

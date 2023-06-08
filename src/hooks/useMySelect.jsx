@@ -9,7 +9,7 @@ const useMySelect = () => {
     queryKey: ["classes", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `https://my-12th-work-server.vercel.app/classes?email=${user.email}`
+        `https://my-12th-work-server.vercel.app/classes?email=${user?.email}`
       );
       return res.json();
     },

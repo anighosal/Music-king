@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import useMySelect from "../../hooks/useMySelect";
 
 const ClassCard = ({ singleClass }) => {
   const {
@@ -13,6 +14,7 @@ const ClassCard = ({ singleClass }) => {
     _id,
   } = singleClass;
   const { user } = useContext(AuthContext);
+  const [, refetch] = useMySelect();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -38,6 +40,7 @@ const ClassCard = ({ singleClass }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.insertedId) {
+            refetch();
             Swal.fire({
               title: "This Class selected",
               showClass: {

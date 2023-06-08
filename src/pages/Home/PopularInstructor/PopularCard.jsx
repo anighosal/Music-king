@@ -7,7 +7,11 @@ const PopularCard = ({ teacher }) => {
     <div>
       <div className="card w-96 bg-base-100 shadow-xl">
         <figure>
-          <img className="w-full h-[200px]" src={instructorImage} alt="Shoes" />
+          <img
+            className="lg:w-full h-[200px]"
+            src={instructorImage}
+            alt="Shoes"
+          />
         </figure>
         <div className="card-body">
           <h2 className="card-title">Name: {musicInstructorName}</h2>

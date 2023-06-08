@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
-import { FaMusic, FaUser, FaUserFriends } from "react-icons/fa";
+import { FaMusic, FaShoppingCart, FaUser, FaUserFriends } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProviders";
+import useMySelect from "../../../hooks/useMySelect";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [myselect] = useMySelect();
 
   const handleLogOut = () => {
     logOut()
@@ -25,13 +27,17 @@ const Navbar = () => {
       <li>
         <Link to="/dashboard">Dashboard</Link>
       </li>
-      {/* <li>
+      <li>
         <Link to="/dashboard/myselect">
-          <button className="btn gap-2 rounded-sm">
-            <FaUser></FaUser>{" "}
+          <button className="btn gap-2">
+            <FaShoppingCart></FaShoppingCart>
+
+            <div className="badge badge-secondary">
+              +{myselect?.length || 0}
+            </div>
           </button>
         </Link>
-      </li> */}
+      </li>
 
       {user?.photoURL ? (
         <>

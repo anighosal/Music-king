@@ -12,7 +12,7 @@ const ClassCard = ({ singleClass }) => {
     <div>
       <div className="card card-side bg-base-100 shadow-xl">
         <figure>
-          <img className="h-full" w-20 src={classImage} />
+          <img className="h-[300px] w-[200px]" w-20 src={classImage} />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{className}</h2>

@@ -9,7 +9,7 @@ import {
   FaWallet,
 } from "react-icons/fa";
 
-const Dshboard = () => {
+const Dashboard = () => {
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -72,4 +72,4 @@ const Dshboard = () => {
   );
 };
 
-export default Dshboard;
+export default Dashboard;

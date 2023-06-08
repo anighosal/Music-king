@@ -5,14 +5,32 @@ import { FaMoneyBill, FaRegUserCircle, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const MySelect = () => {
-  const [cart, refetch] = useMySelect();
+  const [classes, refetch] = useMySelect();
   const handleDelete = (singleClass) => {
     Swal.fire({
-      position: "top-end",
-      icon: "success",
-      title: "Your work has been saved",
-      showConfirmButton: false,
-      timer: 1500,
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(
+          `https://my-12th-work-server.vercel.app/classes/${singleClass._id}`,
+          {
+            method: "DELETE",
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              refetch();
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          });
+      }
     });
   };
   return (
@@ -34,7 +52,7 @@ const MySelect = () => {
             </tr>
           </thead>
           <tbody>
-            {cart.map((singleClass, index) => (
+            {classes.map((singleClass, index) => (
               <tr key={singleClass._id}>
                 <th>{index + 1}</th>
                 <td>

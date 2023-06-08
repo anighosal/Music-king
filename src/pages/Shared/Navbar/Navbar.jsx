@@ -6,7 +6,7 @@ import useMySelect from "../../../hooks/useMySelect";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  const [myselect] = useMySelect();
+  const [classes] = useMySelect();
 
   const handleLogOut = () => {
     logOut()
@@ -32,9 +32,7 @@ const Navbar = () => {
           <button className="btn gap-2">
             <FaShoppingCart></FaShoppingCart>
 
-            <div className="badge badge-secondary">
-              +{myselect?.length || 0}
-            </div>
+            <div className="badge badge-secondary">+{classes?.length || 0}</div>
           </button>
         </Link>
       </li>

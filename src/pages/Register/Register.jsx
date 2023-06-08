@@ -18,22 +18,33 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
-      console.log(loggedUser);
+
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
-          console.log("user profile info updated");
-          reset();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "user successfully registerd",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          navigate("/");
+          const saveUser = { name: data.name, email: data.email };
+          fetch("https://my-12th-work-server.vercel.app/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(saveUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                reset();
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "user successfully registerd",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate("/");
+              }
+            });
         })
         .catch((error) => console.log(error));
     });
@@ -55,7 +66,7 @@ const Register = () => {
                   <span className="label-text">Name</span>
                 </label>
                 <input
-                  type="name"
+                  type="text"
                   name="name"
                   placeholder="name"
                   className="input input-bordered"
@@ -72,12 +83,12 @@ const Register = () => {
                 </label>
                 <input
                   type="email"
+                  {...register("email", { required: true })}
                   name="email"
                   placeholder="email"
                   className="input input-bordered"
-                  {...register("email", { required: true, maxLength: 20 })}
                 />
-                <br />
+
                 {errors.email && (
                   <span className="text-red-500">This is field required</span>
                 )}
@@ -95,8 +106,7 @@ const Register = () => {
                     required: true,
                     minLength: 6,
                     maxLength: 20,
-                    pattern:
-                      /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z])/,
+                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[a-z])/,
                   })}
                 />
                 {errors.password?.type === "required" && (

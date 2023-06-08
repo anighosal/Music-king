@@ -6,13 +6,14 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Errorpage from "../Errorpage/Errorpage";
 import Classes from "../pages/Classes/Classes";
-import Dshboard from "../Layout/Dshboard";
+
 import MySelect from "../pages/Dashboard/MySelect/MySelect";
 import Instructors from "../pages/Instructors/Instructors";
 import MyEnroll from "../pages/Dashboard/MyEnroll/MyEnroll";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layout/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -43,7 +44,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dshboard></Dshboard>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "userhome",

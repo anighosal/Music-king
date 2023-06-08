@@ -10,6 +10,9 @@ import Dshboard from "../Layout/Dshboard";
 import MySelect from "../pages/Dashboard/MySelect/MySelect";
 import Instructors from "../pages/Instructors/Instructors";
 import MyEnroll from "../pages/Dashboard/MyEnroll/MyEnroll";
+import Payment from "../pages/Dashboard/Payment/Payment";
+import UserHome from "../pages/Dashboard/UserHome/UserHome";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -43,12 +46,20 @@ export const router = createBrowserRouter([
     element: <Dshboard></Dshboard>,
     children: [
       {
+        path: "userhome",
+        element: <UserHome></UserHome>,
+      },
+      {
         path: "myselect",
         element: <MySelect></MySelect>,
       },
       {
         path: "myenroll",
         element: <MyEnroll></MyEnroll>,
+      },
+      {
+        path: "payment",
+        element: <Payment></Payment>,
       },
     ],
   },

@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 import {
   FaChalkboardTeacher,
   FaHome,
@@ -21,49 +22,51 @@ const Dshboard = () => {
           Open drawer
         </label>
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side bg-blue-600">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 h-full bg-blue-600 text-white">
-          {/* Sidebar content here */}
-          <li>
-            <Link>
-              <FaHome></FaHome> User Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/dashboard/myselect">
-              <FaUserFriends></FaUserFriends> My Selected Classes
-            </Link>
-          </li>
-          <li>
-            <Link to="/dashboard/myenroll">
-              <FaSchool></FaSchool> My Enrolled Classes
-            </Link>
-          </li>
+        <Fade>
+          <ul className="menu p-4 w-80 h-full  text-white">
+            {/* Sidebar content here */}
+            <li>
+              <NavLink to="/dashboard/userhome">
+                <FaHome></FaHome> User Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/myselect">
+                <FaUserFriends></FaUserFriends> My Selected Classes
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/myenroll">
+                <FaSchool></FaSchool> My Enrolled Classes
+              </NavLink>
+            </li>
 
-          <li>
-            <Link>
-              <FaWallet></FaWallet> Student Payment
-            </Link>
-          </li>
+            <li>
+              <NavLink to="/dashboard/payment">
+                <FaWallet></FaWallet> Student Payment
+              </NavLink>
+            </li>
 
-          <div className="divider"></div>
-          <li>
-            <Link to="/">
-              <FaHome></FaHome>Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/instructors">
-              <FaChalkboardTeacher></FaChalkboardTeacher> Instructors
-            </Link>
-          </li>
-          <li>
-            <Link to="/classes">
-              <FaUserFriends></FaUserFriends> Classes
-            </Link>
-          </li>
-        </ul>
+            <div className="divider"></div>
+            <li>
+              <Link to="/">
+                <FaHome></FaHome>Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/instructors">
+                <FaChalkboardTeacher></FaChalkboardTeacher> Instructors
+              </Link>
+            </li>
+            <li>
+              <Link to="/classes">
+                <FaUserFriends></FaUserFriends> Classes
+              </Link>
+            </li>
+          </ul>
+        </Fade>
       </div>
     </div>
   );

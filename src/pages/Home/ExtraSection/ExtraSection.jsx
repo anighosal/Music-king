@@ -13,13 +13,16 @@ import slide5 from "../../../assets/song5.avif";
 import slide6 from "../../../assets/song6.avif";
 import slide7 from "../../../assets/song7.avif";
 import slide8 from "../../../assets/song8.avif";
+import { Fade } from "react-awesome-reveal";
 
 const ExtraSection = () => {
   return (
     <>
-      <h2 className="text-center font-bold text-2xl text-blue-800 mb-7 mt-6">
-        ---- Our Programmes ----
-      </h2>
+      <Fade>
+        <h2 className="text-center font-bold text-2xl text-blue-800 mb-7 mt-6">
+          ---- Our Programmes ----
+        </h2>
+      </Fade>
 
       <Swiper
         slidesPerView={1}

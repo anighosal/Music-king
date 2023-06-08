@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProviders";
+import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ClassCard = ({ singleClass }) => {
   const {
@@ -7,7 +10,61 @@ const ClassCard = ({ singleClass }) => {
     classPrice,
     availableSeats,
     musicInstructorName,
+    _id,
   } = singleClass;
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleSelectClass = (singleClass) => {
+    console.log(singleClass);
+    if (user && user.email) {
+      const classes = {
+        singleClassId: _id,
+        email: user.email,
+        className,
+        classImage,
+        classPrice,
+        availableSeats,
+        musicInstructorName,
+      };
+      fetch("https://my-12th-work-server.vercel.app/classes", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(classes),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            Swal.fire({
+              title: "This Class selected",
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+            });
+          }
+        });
+    } else {
+      Swal.fire({
+        title: "Please login to select class",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login now",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
+        }
+      });
+    }
+  };
   return (
     <div>
       <div className="card card-side bg-base-100 shadow-xl">
@@ -20,7 +77,12 @@ const ClassCard = ({ singleClass }) => {
           <p>Available Seats: {availableSeats}</p>
           <p className="text-red-700 font-bold">Price:$ {classPrice}</p>
           <div className="card-actions">
-            <button className="btn btn-primary">Select Class</button>
+            <button
+              onClick={() => handleSelectClass(singleClass)}
+              className="btn btn-primary"
+            >
+              Select Class
+            </button>
           </div>
         </div>
       </div>

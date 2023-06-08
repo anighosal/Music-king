@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { FaMusic } from "react-icons/fa";
+import { FaMusic, FaUser, FaUserFriends } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProviders";
 
@@ -25,6 +25,13 @@ const Navbar = () => {
       <li>
         <Link to="/dashboard">Dashboard</Link>
       </li>
+      {/* <li>
+        <Link to="/dashboard/myselect">
+          <button className="btn gap-2 rounded-sm">
+            <FaUser></FaUser>{" "}
+          </button>
+        </Link>
+      </li> */}
 
       {user?.photoURL ? (
         <>

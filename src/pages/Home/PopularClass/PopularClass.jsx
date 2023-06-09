@@ -9,7 +9,10 @@ const PopularClass = () => {
     fetch(
       `https://my-12th-work-server.vercel.app/musicData?sort=${
         asc ? "asc" : "desc"
-      }`
+      }`,
+      {
+        method: "GET",
+      }
     )
       .then((res) => res.json())
       .then((data) => setPopularAllClass(data));

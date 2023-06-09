@@ -6,6 +6,10 @@ import Swal from "sweetalert2";
 
 const MySelect = () => {
   const [classes, refetch] = useMySelect();
+  const total = classes.reduce(
+    (sum, singleClass) => singleClass.price + sum,
+    0
+  );
   const handleDelete = (singleClass) => {
     Swal.fire({
       title: "Are you sure?",
@@ -38,6 +42,9 @@ const MySelect = () => {
       <Helmet>
         <title>Music King | My selected Classes</title>
       </Helmet>
+      <h3 className="text-3xl">Total Items: {classes.length}</h3>
+      <h3 className="text-3xl">Total Price: {classes.length}</h3>
+      <button className="btn btn-warning btn-sm">Pay</button>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

@@ -10,6 +10,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -50,6 +51,19 @@ const AuthProviders = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       console.log("current user", currentUser);
+
+      // get and set token
+      if (currentUser) {
+        axios
+          .post("https://my-12th-work-server.vercel.app/jwt", {
+            email: currentUser.email,
+          })
+          .then((data) => {
+            console.log(data);
+          });
+      }
+
+      setLoading(false);
     });
     return () => {
       return unsubscribe();

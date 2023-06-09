@@ -8,10 +8,12 @@ import {
   FaUserFriends,
   FaWallet,
 } from "react-icons/fa";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   // todo load data from the server to have dynamic isAdmoin based on data
-  const isAdmin = true;
+  // const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   return (
     <div className="drawer lg:drawer-open">
@@ -37,7 +39,7 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/dashboard/myselect">
+                  <NavLink to="/dashboard/manageclass">
                     <FaUserFriends></FaUserFriends> Manage Classes
                   </NavLink>
                 </li>

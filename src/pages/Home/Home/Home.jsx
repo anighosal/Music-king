@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import ExtraSection from "../ExtraSection/ExtraSection";
 import { Helmet } from "react-helmet-async";
 import PopularInstructor from "../PopularInstructor/PopularInstructor";
+import PopularClass from "../PopularClass/PopularClass";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
         <title>Music King | Home</title>
       </Helmet>
       <Banner></Banner>
+      <PopularClass></PopularClass>
       <PopularInstructor></PopularInstructor>
       <ExtraSection></ExtraSection>
     </div>

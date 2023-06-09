@@ -27,7 +27,7 @@ const Navbar = () => {
       <li>
         <Link to="/dashboard">Dashboard</Link>
       </li>
-      <li>
+      {/* <li>
         <Link to="/dashboard/myselect">
           <button className="btn gap-2">
             <FaShoppingCart></FaShoppingCart>
@@ -35,27 +35,7 @@ const Navbar = () => {
             <div className="badge badge-secondary">+{classes?.length || 0}</div>
           </button>
         </Link>
-      </li>
-
-      {user?.photoURL ? (
-        <>
-          <img
-            className="rounded-2xl w-8 h-8 mr-2"
-            src={user?.photoURL}
-            alt=""
-          />
-          <p className="text-xl">{user?.displayName}</p>
-          <button onClick={handleLogOut} className="btn btn-ghost">
-            Logout
-          </button>
-        </>
-      ) : (
-        <>
-          <li>
-            <Link to="/login">Login</Link>{" "}
-          </li>
-        </>
-      )}
+      </li> */}
     </>
   );
   return (
@@ -94,7 +74,25 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navList}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          {user?.photoURL ? (
+            <>
+              <img
+                className="rounded-2xl w-8 h-8 mr-2"
+                src={user?.photoURL}
+                alt=""
+              />
+              <p className="text-xl">{user?.displayName}</p>
+              <button onClick={handleLogOut} className="btn btn-ghost">
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link to="/login">Login</Link>{" "}
+              </li>
+            </>
+          )}
         </div>
       </div>
     </>

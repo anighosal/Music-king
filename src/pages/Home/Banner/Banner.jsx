@@ -4,7 +4,7 @@ import { Carousel } from "react-responsive-carousel";
 import img1 from "../../../assets/1banner.jpg";
 import img2 from "../../../assets/img2.avif";
 import img3 from "../../../assets/img3.avif";
-import banner from "./Banner.css";
+import "./Banner.css";
 import { Fade } from "react-awesome-reveal";
 
 const Banner = () => {

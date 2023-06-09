@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import { FaTrash } from "react-icons/fa";
+import { FaTrash, FaUserShield } from "react-icons/fa";
 
 const ManageUsers = () => {
   const { data: users = [], refetch } = useQuery(["users"], async () => {
@@ -10,7 +10,7 @@ const ManageUsers = () => {
     const handleDelete = (user) => {};
   });
   return (
-    <div>
+    <div className="lg:w-full">
       <Helmet>
         <title>Music King | All Users</title>
       </Helmet>
@@ -33,11 +33,17 @@ const ManageUsers = () => {
                 <th>{index + 1}</th>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
-                <td>Blue</td>
+                <td>
+                  {user.role === "admin" ? (
+                    "admin"
+                  ) : (
+                    <FaUserShield></FaUserShield>
+                  )}
+                </td>
                 <td>Blue</td>
                 <button
                   onClick={() => handleDelete(user)}
-                  className="btn btn-ghost btn-sm"
+                  className="btn btn-ghost bg-red-500"
                 >
                   <FaTrash></FaTrash>
                 </button>

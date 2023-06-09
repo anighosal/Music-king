@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { AuthContext } from "../providers/AuthProviders";
+
 import useAxiosSecure from "./useAxiosSecure";
+import useAuth from "./useAuth";
 
 const useMySelect = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
   // const token = localStorage.getItem("access-token");
   const [axios] = useAxiosSecure();
 

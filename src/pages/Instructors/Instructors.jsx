@@ -3,9 +3,9 @@ import { Helmet } from "react-helmet-async";
 import InstructorCard from "./instructorCard";
 
 const Instructors = () => {
-  const [instructos, setInstructors] = useState([]);
+  const [instructors, setInstructors] = useState([]);
   useEffect(() => {
-    fetch("https://my-12th-work-server.vercel.app/musicData")
+    fetch("http://localhost:5000/musicData")
       .then((res) => res.json())
       .then((data) => {
         setInstructors(data);
@@ -20,7 +20,7 @@ const Instructors = () => {
         Our All Instructor
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {instructos.map((instructor) => (
+        {instructors.map((instructor) => (
           <InstructorCard
             key={instructor._id}
             instructor={instructor}

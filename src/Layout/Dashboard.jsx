@@ -9,11 +9,15 @@ import {
   FaWallet,
 } from "react-icons/fa";
 import useAdmin from "../hooks/useAdmin";
+import useInstructor from "../hooks/useInstructor";
+import useMySelect from "../hooks/useMySelect";
 
 const Dashboard = () => {
   // todo load data from the server to have dynamic isAdmoin based on data
   // const isAdmin = true;
+  const [classes] = useMySelect();
   const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
   return (
     <div className="drawer lg:drawer-open">
@@ -34,7 +38,7 @@ const Dashboard = () => {
             {isAdmin ? (
               <>
                 <li>
-                  <NavLink to="/dashboard/userhome">
+                  <NavLink to="/dashboard/admin">
                     <FaHome></FaHome> Admin Home
                   </NavLink>
                 </li>
@@ -91,6 +95,15 @@ const Dashboard = () => {
                 <FaUserFriends></FaUserFriends> Classes
               </Link>
             </li>
+            {isInstructor && (
+              <>
+                <li>
+                  <NavLink to="/dashboard/addclass">
+                    <FaUserFriends></FaUserFriends> Add class
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </Fade>
       </div>

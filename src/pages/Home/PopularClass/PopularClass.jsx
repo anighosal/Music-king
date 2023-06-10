@@ -6,14 +6,7 @@ const PopularClass = () => {
   const [asc, setAsc] = useState(true);
 
   useEffect(() => {
-    fetch(
-      `https://my-12th-work-server.vercel.app/musicData?sort=${
-        asc ? "asc" : "desc"
-      }`,
-      {
-        method: "GET",
-      }
-    )
+    fetch(`http://localhost:5000/musicDataSort?sort=${asc ? "asc" : "desc"}`)
       .then((res) => res.json())
       .then((data) => setPopularAllClass(data));
   }, [asc]);

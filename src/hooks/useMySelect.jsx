@@ -5,19 +5,20 @@ import useAxiosSecure from "./useAxiosSecure";
 import useAuth from "./useAuth";
 
 const useMySelect = () => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   // const token = localStorage.getItem("access-token");
-  const [axios] = useAxiosSecure();
+  const [axiosSecure] = useAxiosSecure();
 
-  const { refetch, data: classes = [] } = useQuery({
+  const { refetch, data: classe = [] } = useQuery({
     queryKey: ["classes", user?.email],
+    enabled: !!user?.email && !!localStorage.getItem("access-token"),
     queryFn: async () => {
-      const res = await fetch(`/classes?email=${user?.email}`);
+      const res = await axiosSecure(`/classes?email=${user?.email}`);
       console.log("res from axios", res);
       return res.data;
     },
   });
-  return [classes, refetch];
+  return [classe, refetch];
 };
 
 export default useMySelect;

@@ -3,20 +3,26 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { FaTrash, FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAdmin from "../../../hooks/useAdmin";
+import useAuth from "../../../hooks/useAuth";
 
 const ManageUsers = () => {
-  const { data: users = [], refetch } = useQuery(["users"], async () => {
-    const res = await fetch("https://my-12th-work-server.vercel.app/users");
-    return res.json();
-  });
+  const [axiosSecure] = useAxiosSecure();
+  // const [isAdmin] = useAdmin();
+  const { user } = useAuth();
+  const { data: users = [], refetch } = useQuery(
+    ["users", user?.email],
+    async () => {
+      const res = await axiosSecure.get(`/users?email=${user?.email}`);
+      return res.data;
+    }
+  );
 
   const handleInstructor = (user) => {
-    fetch(
-      `https://my-12th-work-server-anighosal.vercel.app/users/instructor/${user._id}`,
-      {
-        method: "PATCH",
-      }
-    )
+    fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+      method: "PATCH",
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -32,12 +38,9 @@ const ManageUsers = () => {
   };
 
   const handleAdmin = (user) => {
-    fetch(
-      `https://my-12th-work-server-anighosal.vercel.app/users/admin/${user._id}`,
-      {
-        method: "PATCH",
-      }
-    )
+    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+      method: "PATCH",
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -59,7 +62,7 @@ const ManageUsers = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://my-12th-work-server.vercel.app/users/${user._id}`, {
+        fetch(`http://localhost:5000/users/${user._id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -88,6 +91,7 @@ const ManageUsers = () => {
               <th>Email</th>
               <th>Admin Role</th>
               <th>Instructor role</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>

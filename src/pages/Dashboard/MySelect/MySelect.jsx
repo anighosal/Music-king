@@ -21,12 +21,9 @@ const MySelect = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://my-12th-work-server.vercel.app/classes/${singleClass._id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`http://localhost:5000/classes/${singleClass._id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -87,12 +84,6 @@ const MySelect = () => {
                     className="btn btn-ghost btn-sm"
                   >
                     <FaTrash></FaTrash>
-                  </button>
-                  <button className="btn btn-ghost btn-sm ">
-                    <FaMoneyBill></FaMoneyBill>
-                  </button>
-                  <button className="btn btn-ghost btn-sm ">
-                    <FaRegUserCircle></FaRegUserCircle>
                   </button>
                 </td>
               </tr>

@@ -1,11 +1,13 @@
-import { useMutation } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useMusic from "../../../hooks/useMusic";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const MyClasses = () => {
-  const [myAllClass, setMyAllClass] = useState([]);
+  const [music, refetch] = useMusic();
+  const [axiosSecure] = useAxiosSecure();
 
   const handleDelete = (myclass) => {
     Swal.fire({
@@ -18,27 +20,17 @@ const MyClasses = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/musicData/${myclass._id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount > 0) {
-              refetch();
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
-            }
-          });
+        axiosSecure.delete(`/musicData/${myclass._id}`).then((res) => {
+          console.log("deleted res", res.data);
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          }
+        });
       }
     });
   };
 
-  useEffect(() => {
-    fetch("http://localhost:5000/musicData")
-      .then((res) => res.json())
-      .then((data) => {
-        setMyAllClass(data);
-      });
-  }, []);
   return (
     <div>
       <Helmet>
@@ -57,7 +49,7 @@ const MyClasses = () => {
             </tr>
           </thead>
           <tbody>
-            {myAllClass.map((myclass) => (
+            {music.map((myclass) => (
               <tr key={myclass._id}>
                 <td>
                   <div className="flex items-center space-x-3">
@@ -83,7 +75,7 @@ const MyClasses = () => {
                 </td>
                 <td>
                   <button
-                    onClick={() => handleDelete(myclass)}
+                    onClick={() => handleDelete(myclass._id)}
                     className="btn btn-ghost btn-xs"
                   >
                     <FaTrashAlt></FaTrashAlt>

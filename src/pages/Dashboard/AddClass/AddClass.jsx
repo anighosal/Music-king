@@ -14,7 +14,7 @@ const AddClass = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const {
       className,
       classImage,
@@ -23,8 +23,9 @@ const AddClass = () => {
       user: email,
       name,
     } = data;
+
     console.log(data);
-    const newClass = {
+    const formData = {
       className,
       classImage,
       classPrice: parseFloat(classPrice),
@@ -32,26 +33,46 @@ const AddClass = () => {
       user: email,
       name,
     };
-    fetch("http://localhost:5000/musicData", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newClass),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (newClass.success) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Item added successfully",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-      });
+
+    try {
+      const response = await axiosSecure.post(
+        "http://localhost:5000/musicData",
+        formData
+      );
+      console.log(response.data);
+      if (response.success) {
+        reset();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "user successfully login",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      } // Reset the form after successful submission
+    } catch (error) {
+      console.error(error);
+    }
+    // fetch("http://localhost:5000/musicData", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(newClass),
+    // })
+    // .then((res) => res.json())
+    // .then((data) => {
+    //   console.log(data);
+    //   if (newClass.success) {
+    //     Swal.fire({
+    //       position: "top-end",
+    //       icon: "success",
+    //       title: "Item added successfully",
+    //       showConfirmButton: false,
+    //       timer: 1500,
+    //     });
+    //   }
+    // });
   };
 
   return (

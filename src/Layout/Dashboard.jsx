@@ -12,7 +12,7 @@ import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
 import useMySelect from "../hooks/useMySelect";
 
-const Dashboard = () => {
+const Dashboard = ({ user }) => {
   // todo load data from the server to have dynamic isAdmoin based on data
   // const isAdmin = true;
   const [classes] = useMySelect();
@@ -35,6 +35,20 @@ const Dashboard = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <Fade>
           <ul className="menu p-4 w-80 h-full  text-white">
+            {user && user.role === "instructor" && (
+              <>
+                <li>
+                  <NavLink to="/dashboard/addclass">
+                    <FaUserFriends></FaUserFriends> Add class
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/myclasses">
+                    <FaUserFriends></FaUserFriends> My Classes
+                  </NavLink>
+                </li>
+              </>
+            )}
             {isAdmin ? (
               <>
                 <li>
@@ -95,20 +109,6 @@ const Dashboard = () => {
                 <FaUserFriends></FaUserFriends> Classes
               </Link>
             </li>
-            {isInstructor && (
-              <>
-                <li>
-                  <NavLink to="/dashboard/addclass">
-                    <FaUserFriends></FaUserFriends> Add class
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/dashboard/myclasses">
-                    <FaUserFriends></FaUserFriends> My Classes
-                  </NavLink>
-                </li>
-              </>
-            )}
           </ul>
         </Fade>
       </div>

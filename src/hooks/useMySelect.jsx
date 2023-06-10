@@ -5,7 +5,7 @@ import useAxiosSecure from "./useAxiosSecure";
 import useAuth from "./useAuth";
 
 const useMySelect = () => {
-  const { user, loading } = useAuth();
+  const { user } = useAuth();
   // const token = localStorage.getItem("access-token");
   const [axiosSecure] = useAxiosSecure();
 

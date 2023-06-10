@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import useMySelect from "../../../hooks/useMySelect";
 import { FaMoneyBill, FaRegUserCircle, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MySelect = () => {
   const [classes, refetch] = useMySelect();
@@ -41,7 +42,10 @@ const MySelect = () => {
       </Helmet>
       <h3 className="text-3xl">Total Items: {classes.length}</h3>
       <h3 className="text-3xl">Total Price: {classes.length}</h3>
-      <button className="btn btn-warning btn-sm">Pay</button>
+      <Link to="/dashboard/payment">
+        {" "}
+        <button className="btn btn-warning btn-sm">Pay</button>
+      </Link>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

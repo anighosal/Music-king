@@ -59,11 +59,6 @@ const MyClasses = () => {
           <tbody>
             {myAllClass.map((myclass) => (
               <tr key={myclass._id}>
-                <th>
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </th>
                 <td>
                   <div className="flex items-center space-x-3">
                     <div className="avatar">

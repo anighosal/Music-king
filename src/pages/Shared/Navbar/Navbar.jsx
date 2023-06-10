@@ -3,6 +3,7 @@ import { FaMusic, FaShoppingCart, FaUser, FaUserFriends } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProviders";
 import useMySelect from "../../../hooks/useMySelect";
+import useAdmin from "../../../hooks/useAdmin";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);

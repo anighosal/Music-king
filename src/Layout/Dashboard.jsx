@@ -102,6 +102,11 @@ const Dashboard = () => {
                     <FaUserFriends></FaUserFriends> Add class
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink to="/dashboard/myclasses">
+                    <FaUserFriends></FaUserFriends> My Classes
+                  </NavLink>
+                </li>
               </>
             )}
           </ul>

@@ -1,18 +1,65 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
+import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AddClass = () => {
-  const { register, handleSubmit, reset } = useForm();
+  const { user } = useAuth();
+  const [axiosSecure] = useAxiosSecure();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const onSubmit = (data) => {
+    const {
+      className,
+      classImage,
+      classPrice,
+      AvailableSeats,
+      user: email,
+      name,
+    } = data;
     console.log(data);
+    const newClass = {
+      className,
+      classImage,
+      classPrice: parseFloat(classPrice),
+      AvailableSeats,
+      user: email,
+      name,
+    };
+    fetch("http://localhost:5000/musicData", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newClass),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (newClass.success) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Item added successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
   };
+
   return (
-    <div className="w-full px-10 bg-slate-500">
+    <div className="w-full h-[500px] px-10 bg-slate-500 ml-6">
       <Helmet>
         <title>Music King | Add Class</title>
       </Helmet>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form className="mt-10" onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control w-full">
           <label className="label">
             <span className="label-text text-white">Class Image</span>
@@ -93,9 +140,10 @@ const AddClass = () => {
               <span className="label-text text-white">Name</span>
             </label>
             <input
-              type="name"
+              type="text"
               name="name"
               placeholder="Type here"
+              defaultValue={user?.displayName}
               className="input input-bordered w-full"
               {...register("name", { required: true, maxLength: 120 })}
             />
@@ -105,9 +153,10 @@ const AddClass = () => {
               <span className="label-text text-white">Email</span>
             </label>
             <input
-              type="Email"
+              type="text"
               {...register("email", { required: true })}
               name="Email"
+              defaultValue={user?.email}
               placeholder="Type here"
               className="input input-bordered w-full"
             />
@@ -115,7 +164,7 @@ const AddClass = () => {
         </div>
 
         <input
-          className="btn btn-primary mt-8 w-full"
+          className="btn btn-error mt-8 w-full"
           type="submit"
           value="Add Class"
         />

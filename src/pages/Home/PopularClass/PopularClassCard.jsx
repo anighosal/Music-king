@@ -6,7 +6,7 @@ const PopularClassCard = ({ allclass }) => {
     <>
       <div className="card w-96 glass">
         <figure>
-          <img src={classImage} />
+          <img className="h-[150px]" src={classImage} />
         </figure>
         <div className="card-body">
           <h2 className="card-title">Class Name: {className}</h2>

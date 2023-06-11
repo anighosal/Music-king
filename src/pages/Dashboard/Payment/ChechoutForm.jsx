@@ -17,6 +17,7 @@ const ChechoutForm = ({ singleClass, classPrice }) => {
   const [transactionId, setTransactionId] = useState("");
 
   useEffect(() => {
+    console.log(classPrice);
     if (classPrice > 0) {
       axiosSecure.post("/create-payment-intent", { classPrice }).then((res) => {
         console.log(res.data.clientSecret);
@@ -78,11 +79,11 @@ const ChechoutForm = ({ singleClass, classPrice }) => {
         transactionId: paymentIntent.id,
         price: classPrice,
         date: new Date(),
-        // quantity: oneClass.length,
-        // subject: oneClass.map((sub) => sub._id),
-        // subjectItems: oneClass.map((sub) => sub.subjectItemId),
-        // status: "service pending",
-        // subjectNames: classes.map((sub) => sub.name),
+
+        subject: singleClass.map((sub) => sub._id),
+        subjectItems: singleClass.map((sub) => sub.subjectItemId),
+        status: "service pending",
+        subjectNames: classes.map((sub) => sub.name),
       };
       axiosSecure.post("/payments", payment).then((res) => {
         console.log(res.data);
@@ -96,7 +97,7 @@ const ChechoutForm = ({ singleClass, classPrice }) => {
 
   return (
     <>
-      <form className="w-full" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <CardElement
           options={{
             style: {
@@ -116,7 +117,7 @@ const ChechoutForm = ({ singleClass, classPrice }) => {
         <button
           className="btn btn-primary btn-sm mt-4"
           type="submit"
-          // disabled={!stripe || !clientSecret}
+          disabled={!stripe || !clientSecret || processing}
         >
           Pay
         </button>

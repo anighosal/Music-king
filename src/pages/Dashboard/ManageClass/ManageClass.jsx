@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useMusic from "../../../hooks/useMusic";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaTrashAlt } from "react-icons/fa";
@@ -7,19 +7,55 @@ import { Helmet } from "react-helmet-async";
 const ManageClass = () => {
   const [music, refetch] = useMusic();
   const [axiosSecure] = useAxiosSecure();
+  const [classes, setClasses] = useState([]);
 
-  const handleStatusUpdate = async (classId, status) => {
-    await axiosSecure.put(`/music/${classId}`, { status });
+  const handleApprove = (myclass) => {
+    const updatedClass = { status: "approved" };
+    console.log(myclass);
 
-    // Refetch the music data to update the UI
-    refetch();
+    fetch(`http://localhost:5000/classes/${myclass._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedClass),
+    })
+      .then((res = res.json()))
+      .then((data) => {
+        console.log(data);
+        const updatedClasses = classes.map((myclass) =>
+          myclass._id === id ? { ...myclass, status: "approved" } : myclass
+        );
+        setClasses(updatedClasses);
+      });
   };
 
-  const handleSendFeedback = async (myclass) => {};
+  const handleDeny = (myclass) => {
+    const updatedClass = { status: "denied" };
+
+    // Send the updatedClass data to the server
+    fetch(`http://localhost:5000/classes/${myclass._id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedClass),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        // Update the classes state with the updated class
+        const updatedClasses = classes.map((myclass) =>
+          myclass._id === id ? { ...myclass, status: "denied" } : myclass
+        );
+        setClasses(updatedClasses);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <div>
       <Helmet>
-        <title>Music King | Manage Classes</title>
+        <title>Music King | Manage class</title>
       </Helmet>
       <div className="overflow-x-auto">
         <table className="table">
@@ -33,7 +69,7 @@ const ManageClass = () => {
               <th>Instructor Email</th>
               <th>Available Seats</th>
               <th>Class Price</th>
-              <th>Status</th>
+
               <th>Actions</th>
             </tr>
           </thead>
@@ -59,21 +95,22 @@ const ManageClass = () => {
                 <td>{myclass.instructorEmail}</td>
                 <td>{myclass.availableSeats}</td>
                 <td>$ {myclass.classPrice}</td>
-                <td>$ {myclass.status}</td>
+
                 <td>
-                  <button
-                    onClick={() => handleStatusUpdate(myclass.id, "approved")}
-                    disabled={myclass.status !== "pending"}
-                  >
-                    Approve
-                  </button>
-                  <button
-                    onClick={() => handleStatusUpdate(myclass.id, "denied")}
-                    disabled={myclass.status !== "pending"}
-                  >
-                    Deny
-                  </button>
-                  <button onClick={() => handleSendFeedback(myclass.id)}>
+                  {myclass.status === "pending" && (
+                    <>
+                      <button onClick={() => handleApprove(myclass._id)}>
+                        Approve
+                      </button>
+                      <button onClick={() => handleDeny(myclass._id)}>
+                        Deny
+                      </button>
+                    </>
+                  )}
+                  {myclass.status !== "pending" && (
+                    <button disabled>Approve</button>
+                  )}
+                  <button onClick={() => handleSendFeedback(myclass._id)}>
                     Send Feedback
                   </button>
                 </td>

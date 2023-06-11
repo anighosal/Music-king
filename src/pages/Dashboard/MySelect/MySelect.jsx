@@ -42,12 +42,9 @@ const MySelect = () => {
         <title>Music King | My selected Classes</title>
       </Helmet>
       <h3 className="text-3xl">Total Items: {classes.length}</h3>
-      <h3 className="text-3xl">Total Price: {classes.length}</h3>
+
       <h2>My seleted Classes</h2>
-      <Link to="/dashboard/payment">
-        {" "}
-        <button className="btn btn-warning btn-sm">Pay</button>
-      </Link>
+
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -96,7 +93,7 @@ const MySelect = () => {
                   <Link to="/dashboard/payment">
                     {" "}
                     <button
-                      onClick={() => onPayButtonClick(classItem._id)}
+                      onClick={() => onPayButtonClick(singleClass._id)}
                       className="btn btn-warning btn-sm"
                     >
                       Pay

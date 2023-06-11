@@ -28,7 +28,7 @@ const Navbar = () => {
       <li>
         <Link to="/dashboard">Dashboard</Link>
       </li>
-      <li>
+      {/* <li>
         <Link to="/dashboard/myselect">
           <button className="btn gap-2">
             <FaShoppingCart></FaShoppingCart>
@@ -36,7 +36,7 @@ const Navbar = () => {
             <div className="badge badge-secondary">+{classes?.length || 0}</div>
           </button>
         </Link>
-      </li>
+      </li> */}
     </>
   );
   return (

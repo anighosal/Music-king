@@ -18,7 +18,7 @@ const PopularClass = () => {
       <button className="btn btn-primary" onClick={() => setAsc(!asc)}>
         {asc ? "Price: High to low" : "Price:Low to High"}
       </button>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         {popularAllClass.map((allclass) => (
           <PopularClassCard
             key={allclass._id}

@@ -8,7 +8,9 @@ import CheckoutForm from "./ChechoutForm";
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 const Payment = () => {
   const [singleClass] = useMySelect();
-  const classPrice = singleClass.price;
+
+  const classPrice = singleClass.classPrice;
+  console.log(singleClass);
 
   return (
     <div>

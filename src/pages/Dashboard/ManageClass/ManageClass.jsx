@@ -110,8 +110,9 @@ const ManageClass = () => {
                   {myclass.status !== "pending" && (
                     <button disabled>Approve</button>
                   )}
-                  <button onClick={() => handleSendFeedback(myclass._id)}>
-                    Send Feedback
+                  {/* Open the modal using ID.showModal() method */}
+                  <button className="btn" onClick={() => toggleModal}>
+                    Feedback
                   </button>
                 </td>
               </tr>

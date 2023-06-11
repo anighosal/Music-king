@@ -11,6 +11,7 @@ const MySelect = () => {
     (sum, singleClass) => singleClass.price + sum,
     0
   );
+  console.log(total);
   const handleDelete = (singleClass) => {
     Swal.fire({
       title: "Are you sure?",
@@ -42,6 +43,7 @@ const MySelect = () => {
       </Helmet>
       <h3 className="text-3xl">Total Items: {classes.length}</h3>
       <h3 className="text-3xl">Total Price: {classes.length}</h3>
+      <h2>My seleted Classes</h2>
       <Link to="/dashboard/payment">
         {" "}
         <button className="btn btn-warning btn-sm">Pay</button>
@@ -89,6 +91,17 @@ const MySelect = () => {
                   >
                     <FaTrash></FaTrash>
                   </button>
+                </td>
+                <td className="grid grid-cols-1 gap-2">
+                  <Link to="/dashboard/payment">
+                    {" "}
+                    <button
+                      onClick={() => onPayButtonClick(classItem._id)}
+                      className="btn btn-warning btn-sm"
+                    >
+                      Pay
+                    </button>
+                  </Link>
                 </td>
               </tr>
             ))}

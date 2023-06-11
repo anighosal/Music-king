@@ -32,7 +32,7 @@ const MyClasses = () => {
   };
 
   return (
-    <div>
+    <>
       <Helmet>
         <title>Music King | My selected Classes</title>
       </Helmet>
@@ -75,7 +75,7 @@ const MyClasses = () => {
                 </td>
                 <td>
                   <button
-                    onClick={() => handleDelete(myclass._id)}
+                    onClick={() => handleDelete(myclass)}
                     className="btn btn-ghost btn-xs"
                   >
                     <FaTrashAlt></FaTrashAlt>
@@ -86,7 +86,7 @@ const MyClasses = () => {
           </tbody>
         </table>
       </div>
-    </div>
+    </>
   );
 };
 

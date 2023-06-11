@@ -80,7 +80,7 @@ const Dashboard = ({ user }) => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/dashboard/myclasses">
+                  <NavLink to="/dashboard/myselect">
                     <FaSchool /> My Selected Classes
                   </NavLink>
                 </li>

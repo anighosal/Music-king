@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-
-import ClassCard from "./ClassCard";
+import ClassCard from "../../components/ClassCard/ClassCard";
 
 const Classes = () => {
   const [classes, setClasses] = useState([]);
@@ -24,7 +23,7 @@ const Classes = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {classes.map((singleClass) => (
           <ClassCard
-            key={singleClass._Id}
+            key={singleClass._id}
             singleClass={singleClass}
           ></ClassCard>
         ))}

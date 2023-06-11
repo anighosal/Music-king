@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useMusic from "../../../hooks/useMusic";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaTrashAlt } from "react-icons/fa";
@@ -8,31 +8,18 @@ const ManageClass = () => {
   const [music, refetch] = useMusic();
   const [axiosSecure] = useAxiosSecure();
 
-  const handleDelete = (myclass) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axiosSecure.delete(`/musicData/${myclass._id}`).then((res) => {
-          console.log("deleted res", res.data);
-          if (res.data.deletedCount > 0) {
-            refetch();
-            Swal.fire("Deleted!", "Your file has been deleted.", "success");
-          }
-        });
-      }
-    });
+  const handleStatusUpdate = async (classId, status) => {
+    await axiosSecure.put(`/music/${classId}`, { status });
+
+    // Refetch the music data to update the UI
+    refetch();
   };
+
+  const handleSendFeedback = async (myclass) => {};
   return (
     <div>
       <Helmet>
-        <title>Music King | Manage</title>
+        <title>Music King | Manage Classes</title>
       </Helmet>
       <div className="overflow-x-auto">
         <table className="table">
@@ -42,13 +29,18 @@ const ManageClass = () => {
               <th>#</th>
               <th>Class Image</th>
               <th>Class Name</th>
+              <th>Instructor Name</th>
+              <th>Instructor Email</th>
+              <th>Available Seats</th>
               <th>Class Price</th>
-              <th>Action</th>
+              <th>Status</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {music.map((myclass) => (
+            {music.map((myclass, index) => (
               <tr key={myclass._id}>
+                <td>{index + 1}</td>
                 <td>
                   <div className="flex items-center space-x-3">
                     <div className="avatar">
@@ -63,24 +55,25 @@ const ManageClass = () => {
                 </td>
 
                 <td>{myclass.className}</td>
+                <td>{myclass.musicInstructorName}</td>
+                <td>{myclass.instructorEmail}</td>
+                <td>{myclass.availableSeats}</td>
                 <td>$ {myclass.classPrice}</td>
-                <td className="grid grid-cols-1 gap-2">
+                <td>$ {myclass.status}</td>
+                <td>
                   <button
-                    className="btn btn-outline btn-error btn-sm"
-                    onClick={() => handleApprove(myclass)}
+                    onClick={() => handleStatusUpdate(myclass.id, "approved")}
+                    disabled={myclass.status !== "pending"}
                   >
                     Approve
                   </button>
                   <button
-                    className="btn btn-outline btn-warning btn-sm"
-                    onClick={() => handleDeny(myclass)}
+                    onClick={() => handleStatusUpdate(myclass.id, "denied")}
+                    disabled={myclass.status !== "pending"}
                   >
                     Deny
                   </button>
-                  <button
-                    className="btn btn-outline btn-success btn-sm"
-                    onClick={() => handleFeedback(myclass)}
-                  >
+                  <button onClick={() => handleSendFeedback(myclass.id)}>
                     Send Feedback
                   </button>
                 </td>

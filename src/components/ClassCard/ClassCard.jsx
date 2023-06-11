@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../../providers/AuthProviders";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 import useMySelect from "../../hooks/useMySelect";
 
 const ClassCard = ({ singleClass }) => {
@@ -13,7 +12,7 @@ const ClassCard = ({ singleClass }) => {
     musicInstructorName,
     _id,
   } = singleClass;
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
   const [, refetch] = useMySelect();
   const navigate = useNavigate();
   const location = useLocation();

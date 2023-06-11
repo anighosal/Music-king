@@ -23,6 +23,7 @@ import AdminRoute from "./AdminRoute";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import InstructorRoute from "./InstructorRoute";
 import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
+import InstructorHome from "../pages/Dashboard/InstructorHome/InstructorHome";
 
 export const router = createBrowserRouter([
   {
@@ -61,7 +62,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "admin",
-        element: <AdminHome></AdminHome>,
+        element: (
+          <AdminRoute>
+            <AdminHome></AdminHome>
+          </AdminRoute>
+        ),
       },
       {
         path: "manageusers",
@@ -81,11 +86,23 @@ export const router = createBrowserRouter([
       },
       {
         path: "addclass",
-        element: <AddClass></AddClass>,
+        element: (
+          <InstructorRoute>
+            <AddClass></AddClass>
+          </InstructorRoute>
+        ),
       },
       {
         path: "myclasses",
-        element: <MyClasses></MyClasses>,
+        element: (
+          <InstructorRoute>
+            <MyClasses></MyClasses>
+          </InstructorRoute>
+        ),
+      },
+      {
+        path: "instructorhome",
+        element: <InstructorHome></InstructorHome>,
       },
       {
         path: "userhome",

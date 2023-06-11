@@ -9,7 +9,7 @@ const useMySelect = () => {
   // const token = localStorage.getItem("access-token");
   const [axiosSecure] = useAxiosSecure();
 
-  const { refetch, data: classe = [] } = useQuery({
+  const { refetch, data: classes = [] } = useQuery({
     queryKey: ["classes", user?.email],
     enabled: !!user?.email && !!localStorage.getItem("access-token"),
     queryFn: async () => {
@@ -18,7 +18,7 @@ const useMySelect = () => {
       return res.data;
     },
   });
-  return [classe, refetch];
+  return [classes, refetch];
 };
 
 export default useMySelect;

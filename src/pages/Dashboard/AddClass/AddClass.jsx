@@ -36,7 +36,7 @@ const AddClass = () => {
 
     try {
       const response = await axiosSecure.post(
-        "http://localhost:5000/musicData",
+        "https://my-12th-work-server-anighosal.vercel.app/musicData",
         formData
       );
       console.log(response.data);
@@ -53,7 +53,7 @@ const AddClass = () => {
     } catch (error) {
       console.error(error);
     }
-    // fetch("http://localhost:5000/musicData", {
+    // fetch("https://my-12th-work-server-anighosal.vercel.app/musicData", {
     //   method: "POST",
     //   headers: {
     //     "content-type": "application/json",

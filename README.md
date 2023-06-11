@@ -22,3 +22,5 @@ Minimum 5 points of my website features...
 4.User Reviews and Ratings: Allow users to provide feedback and ratings for the music classes they have attended. Implement a review system where users can share their experiences, rate the instructors and classes, and provide constructive feedback. Displaying these reviews can help potential users make informed decisions when choosing a class.
 
 5.User Dashboard and Notifications: Provide users with a personalized dashboard that displays their enrolled classes, upcoming lessons, payment history, and relevant notifications. Implement automated notifications for important updates such as class reminders, instructor messages, or schedule changes. This feature helps users stay informed and engaged with their music learning journey.
+
+live-link: https://music-king-88980.web.app/

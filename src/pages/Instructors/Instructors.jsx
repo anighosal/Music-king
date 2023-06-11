@@ -5,7 +5,7 @@ import InstructorCard from "./instructorCard";
 const Instructors = () => {
   const [instructors, setInstructors] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/musicData")
+    fetch("https://my-12th-work-server-anighosal.vercel.app/musicData")
       .then((res) => res.json())
       .then((data) => {
         setInstructors(data);

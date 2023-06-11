@@ -9,7 +9,9 @@ const useMusic = () => {
   } = useQuery({
     queryKey: ["musicData"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/musicData");
+      const res = await fetch(
+        "https://my-12th-work-server-anighosal.vercel.app/musicData"
+      );
       return res.json();
     },
   });

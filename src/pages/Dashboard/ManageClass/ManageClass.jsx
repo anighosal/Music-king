@@ -13,13 +13,16 @@ const ManageClass = () => {
     const updatedClass = { status: "approved" };
     console.log(myclass);
 
-    fetch(`http://localhost:5000/classes/${myclass._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedClass),
-    })
+    fetch(
+      `https://my-12th-work-server-anighosal.vercel.app/classes/${myclass._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedClass),
+      }
+    )
       .then((res = res.json()))
       .then((data) => {
         console.log(data);
@@ -34,11 +37,14 @@ const ManageClass = () => {
     const updatedClass = { status: "denied" };
 
     // Send the updatedClass data to the server
-    fetch(`http://localhost:5000/classes/${myclass._id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updatedClass),
-    })
+    fetch(
+      `https://my-12th-work-server-anighosal.vercel.app/classes/${myclass._id}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedClass),
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

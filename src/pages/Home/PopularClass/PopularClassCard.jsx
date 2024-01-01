@@ -4,13 +4,13 @@ const PopularClassCard = ({ allclass }) => {
   const { classImage, numberOfStudents, className } = allclass;
   return (
     <>
-      <div className="card w-96 glass">
-        <figure>
-          <img className="h-[150px]" src={classImage} />
-        </figure>
+      <div className="rounded-md lg:w-[400px] w-full bg-slate-600 glass  text-center text-white">
+        <div style={{ height: '300px' }}>
+          <img className="w-full h-full rounded-md p-4 hover:shadow-lg transition-transform transform hover:scale-105" src={classImage} alt={className} />
+        </div>
         <div className="card-body">
-          <h2 className="card-title">Class Name: {className}</h2>
-          <p>Number Of Students: {numberOfStudents}</p>
+          <h2 className="">{className}</h2>
+          <p> {numberOfStudents} Students</p>
         </div>
       </div>
     </>

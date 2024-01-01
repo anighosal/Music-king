@@ -9,3 +9,14 @@
 .drawer-side a {
     background-color: transparent;
   }
+
+/* index.css or your global stylesheet */
+
+
+
+.active{
+  color: orange;
+  font-size: large;
+  font-weight: 700;
+  
+}

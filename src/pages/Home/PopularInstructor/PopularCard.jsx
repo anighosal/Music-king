@@ -4,20 +4,19 @@ const PopularCard = ({ teacher }) => {
   const { musicInstructorName, instructorImage, className, numberOfStudents } =
     teacher;
   return (
-    <div>
-      <div className="card w-96 bg-base-100 shadow-xl">
-        <figure>
+    <div className="text-center text-white">
+      <div className="rounded-md lg:w-[400px] w-full bg-slate-600 glass ">
+        <div style={{ height: '300px' }}>
           <img
-            className="lg:w-full h-[200px]"
-            src={instructorImage}
-            alt="Shoes"
+            className="w-full h-full rounded-md p-4 hover:shadow-lg transition-transform transform hover:scale-105" src={instructorImage} alt={className}
+           
           />
-        </figure>
+        </div>
         <div className="card-body">
-          <h2 className="card-title">Name: {musicInstructorName}</h2>
-          <p className="text-blue-500 font-bold">Class: {className}</p>
-          <p className="text-blue-500 font-bold">
-            Number Of Students: {numberOfStudents}
+          <h2 className="font-bold"> {musicInstructorName}</h2>
+          <p >{className}</p>
+          <p >
+            {numberOfStudents} Students
           </p>
         </div>
       </div>

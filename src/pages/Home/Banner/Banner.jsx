@@ -1,7 +1,7 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import img1 from "../../../assets/1banner.jpg";
+import img1 from "../../../assets/banner.webp";
 import img2 from "../../../assets/img2.avif";
 import img3 from "../../../assets/img3.avif";
 import "./Banner.css";
@@ -14,13 +14,13 @@ const Banner = () => {
         <img src={img1} />
         <div className="banner-text">
           <Fade>
-            <h2 className="text">
+            <h2 className="text lg:text-3xl text-lg font-bold ">
               "Unlock Your Musical Potential with Music King School!"
             </h2>
             <p>
               Welcome to Music King School, where dreams of becoming a musical
-              maestro come true! <br /> Whether you're a beginner with a passion
-              for music or a seasoned musician looking to <br /> refine your
+              maestro come true!  Whether you're a beginner with a passion
+              for music or a seasoned musician looking to  refine your
               skills, Music King School is the ultimate destination for your
               musical journey.
             </p>
@@ -31,13 +31,13 @@ const Banner = () => {
         <img src={img2} />
         <div className="banner-text">
           <Fade>
-            <h2 className="text">
+            <h2 className="text lg:text-3xl ">
               "Unlock Your Musical Potential with Music King School!"
             </h2>
             <p>
               Welcome to Music King School, where dreams of becoming a musical
-              maestro come true! <br /> Whether you're a beginner with a passion
-              for music or a seasoned musician looking to <br /> refine your
+              maestro come true! Whether you're a beginner with a passion
+              for music or a seasoned musician looking to  refine your
               skills, Music King School is the ultimate destination for your
               musical journey.
             </p>
@@ -48,13 +48,13 @@ const Banner = () => {
         <img src={img3} />
         <div className="banner-text">
           <Fade>
-            <h2 className="text">
+            <h2 className="text lg:text-3xl ">
               "Unlock Your Musical Potential with Music King School!"
             </h2>
             <p>
               Welcome to Music King School, where dreams of becoming a musical
-              maestro come true! <br /> Whether you're a beginner with a passion
-              for music or a seasoned musician looking to <br /> refine your
+              maestro come true!  Whether you're a beginner with a passion
+              for music or a seasoned musician looking to  refine your
               skills, Music King School is the ultimate destination for your
               musical journey.
             </p>

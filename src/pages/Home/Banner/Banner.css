@@ -1,18 +1,38 @@
-.banner-card{
- position: relative;
-}
-.banner-text{
+.banner-card {
+    position: relative;
+  }
+
+  
+.banner-card img {
+    max-height: 600px; /* Set the maximum height for the images */
+    width: 100%; /* Ensure the image takes the full width of its container */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+    filter: blur(7px)
+  }
+  
+  .banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-position: absolute;
-top: 25%;
-color: rgb(247, 7, 7);
-}
-.text{
-    font-weight: 1000;
-text-align: center;
-    font-size:larger  ;
-}
-.banner-text p{
-   color: rgb(252, 1, 1);
-   padding: 25px;
-}
+    color: whitesmoke;
+  }
+  
+  .banner-text h2 {
+    color: orange;
+   
+  }
+  
+  .banner-text p {
+    color: whitesmoke;
+    
+  }
+  
+  /* Add the following styles to center the text on smaller screens */
+  @media screen and (max-width: 768px) {
+    .banner-text {
+      width: 80%; /* Adjust the width as needed */
+    }
+  }
+  

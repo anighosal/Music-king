@@ -17,9 +17,9 @@ import { Fade } from "react-awesome-reveal";
 
 const ExtraSection = () => {
   return (
-    <>
+    <div className="lg:mx-[70px]">
       <Fade>
-        <h2 className="text-center font-bold text-2xl text-blue-800 mb-7 mt-6">
+        <h2 className="text-center font-bold lg:text-3xl text-lg mb-10 mt-20 text-slate-800">
           ---- Our Programmes ----
         </h2>
       </Fade>
@@ -48,43 +48,43 @@ const ExtraSection = () => {
         className="mySwiper mb-5"
       >
         <SwiperSlide>
-          <img className="h-[300px]" src={slide1} alt="" />
-          <p className="text-purple-500 text-center">Sydney, 11/02/2023</p>
+          <img className="h-[300px] hover:shadow-lg transition-transform transform hover:scale-105" src={slide1} alt="" />
+          <p className="text-slate-800 text-center">Sydney, 11/02/2023</p>
         </SwiperSlide>
         <SwiperSlide>
-          <img className="h-[300px]" src={slide2} alt="" />
-          <p className="text-purple-500 text-center">USA NewYork, 11/05/2023</p>
+          <img className="h-[300px] hover:shadow-lg transition-transform transform hover:scale-105" src={slide2} alt="" />
+          <p className="text-slate-800 text-center">USA NewYork, 11/05/2023</p>
         </SwiperSlide>
         <SwiperSlide>
-          <img className="h-[300px]" src={slide3} alt="" />
-          <p className="text-purple-500 text-center">Canada, 20/05/2022</p>
+          <img className="h-[300px] hover:shadow-lg transition-transform transform hover:scale-105" src={slide3} alt="" />
+          <p className="text-slate-800 text-center">Canada, 20/05/2022</p>
         </SwiperSlide>
         <SwiperSlide>
-          <img className="h-[300px]" src={slide4} alt="" />
-          <p className="text-purple-500 text-center">London, 20/05/2021</p>
+          <img className="h-[300px] hover:shadow-lg transition-transform transform hover:scale-105" src={slide4} alt="" />
+          <p className="text-slate-800 text-center">London, 20/05/2021</p>
         </SwiperSlide>
         <SwiperSlide>
-          <img className="h-[300px]" src={slide5} alt="" />
-          <p className="text-purple-500 text-center">Germany, 05/02/2021</p>
+          <img className="h-[300px] hover:shadow-lg transition-transform transform hover:scale-105" src={slide5} alt="" />
+          <p className="text-slate-800 text-center">Germany, 05/02/2021</p>
         </SwiperSlide>
         <SwiperSlide>
-          <img className="h-[300px]" src={slide6} alt="" />
-          <p className="text-purple-500 text-center">Ireland, 05/02/2020</p>
+          <img className="h-[300px] hover:shadow-lg transition-transform transform hover:scale-105" src={slide6} alt="" />
+          <p className="text-slate-800 text-center">Ireland, 05/02/2020</p>
         </SwiperSlide>
         <SwiperSlide>
-          <img className="h-[300px]" src={slide7} alt="" />
-          <p className="text-purple-500 text-center">poland, 03/08/2019</p>
+          <img className="h-[300px] hover:shadow-lg transition-transform transform hover:scale-105" src={slide7} alt="" />
+          <p className="text-slate-800 text-center">poland, 03/08/2019</p>
         </SwiperSlide>
         <SwiperSlide>
-          <img className="h-[300px]" src={slide8} alt="" />
-          <p className="text-purple-500 text-center">Scotland, 03/08/2018</p>
+          <img className="h-[300px] hover:shadow-lg transition-transform transform hover:scale-105" src={slide8} alt="" />
+          <p className="text-slate-800 text-center">Scotland, 03/08/2018</p>
         </SwiperSlide>
         <SwiperSlide>
-          <img className="h-[300px]" src={slide1} alt="" />
-          <p className="text-purple-500 text-center">Scotland, 03/08/2018</p>
+          <img className="h-[300px] hover:shadow-lg transition-transform transform hover:scale-105" src={slide1} alt="" />
+          <p className="text-slate-800 text-center">Scotland, 03/08/2018</p>
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 };
 

@@ -24,7 +24,7 @@ const MySelect = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://my-12th-work-server-anighosal.vercel.app/classes/${singleClass._id}`,
+          `http://localhost:5000/classes/${singleClass._id}`,
           {
             method: "DELETE",
           }

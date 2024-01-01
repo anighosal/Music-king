@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useMySelect from "../../hooks/useMySelect";
+import { TiTick } from "react-icons/ti";
 
 const ClassCard = ({ singleClass }) => {
   const {
@@ -29,7 +30,7 @@ const ClassCard = ({ singleClass }) => {
         availableSeats,
         musicInstructorName,
       };
-      fetch("https://my-12th-work-server-anighosal.vercel.app/classes", {
+      fetch("http://localhost:5000/classes", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -69,22 +70,23 @@ const ClassCard = ({ singleClass }) => {
   };
   return (
     <div>
-      <div className="card card-side bg-base-100 shadow-xl">
-        <figure>
-          <img className="h-[300px] w-[200px]" w-20 src={classImage} />
-        </figure>
+      <div className="rounded-md lg:w-[400px] w-full  bg-slate-600 glass text-white">
+        <div style={{ height: '300px' }}>
+          <img className="w-full h-full rounded-md p-4 hover:shadow-lg transition-transform transform hover:scale-105" src={classImage} alt={className} />
+        </div>
         <div className="card-body">
-          <h2 className="card-title">{className}</h2>
-          <p className="font-bold">Instructor :{musicInstructorName}</p>
-          <p>Available Seats: {availableSeats}</p>
-          <p className="text-red-700 font-bold">Price:$ {classPrice}</p>
-          <div className="card-actions">
-            <button
+        <p className="font-bold">{musicInstructorName}</p>
+          <h2 className="">{className}</h2>
+          
+          <p>{availableSeats} seats are available</p>
+          <p className="text-red-500 font-bold">$ {classPrice}</p>
+          <div className="flex">
+            <div
               onClick={() => handleSelectClass(singleClass)}
-              className="btn btn-primary"
+              className="bg-green-600 text-white p-2 rounded-md cursor-pointer"
             >
               Select Class
-            </button>
+            </div>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ const useMusic = () => {
     queryKey: ["musicData"],
     queryFn: async () => {
       const res = await fetch(
-        "https://my-12th-work-server-anighosal.vercel.app/musicData"
+        "http://localhost:5000/musicData"
       );
       return res.json();
     },

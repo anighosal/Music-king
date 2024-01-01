@@ -14,7 +14,7 @@ const ManageClass = () => {
     console.log(myclass);
 
     fetch(
-      `https://my-12th-work-server-anighosal.vercel.app/classes/${myclass._id}`,
+      `http://localhost:5000/classes/${myclass._id}`,
       {
         method: "PUT",
         headers: {
@@ -38,7 +38,7 @@ const ManageClass = () => {
 
     // Send the updatedClass data to the server
     fetch(
-      `https://my-12th-work-server-anighosal.vercel.app/classes/${myclass._id}`,
+      `http://localhost:5000/classes/${myclass._id}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },

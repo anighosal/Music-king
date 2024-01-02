@@ -30,7 +30,7 @@ const ClassCard = ({ singleClass }) => {
         availableSeats,
         musicInstructorName,
       };
-      fetch("http://localhost:5000/classes", {
+      fetch("https://music-king-server.vercel.app/classes", {
         method: "POST",
         headers: {
           "content-type": "application/json",

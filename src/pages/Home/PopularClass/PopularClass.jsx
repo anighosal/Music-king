@@ -8,7 +8,7 @@ const PopularClass = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/musicDataSort?sort=${
+      `https://music-king-server.vercel.app/musicDataSort?sort=${
         asc ? "asc" : "desc"
       }`
     )

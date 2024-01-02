@@ -6,7 +6,7 @@ const PopularInstructor = () => {
   const [topTeacher, setTopTeacher] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/musicData")
+    fetch("https://music-king-server.vercel.app/musicData")
       .then((res) => res.json())
       .then((data) => {
         setTopTeacher(data);

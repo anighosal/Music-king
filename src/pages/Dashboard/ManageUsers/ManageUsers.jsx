@@ -21,7 +21,7 @@ const ManageUsers = () => {
 
   const handleInstructor = (user) => {
     fetch(
-      `http://localhost:5000/users/instructor/${user._id}`,
+      `https://music-king-server.vercel.app/users/instructor/${user._id}`,
       {
         method: "PATCH",
       }
@@ -42,7 +42,7 @@ const ManageUsers = () => {
 
   const handleAdmin = (user) => {
     fetch(
-      `http://localhost:5000/users/admin/${user._id}`,
+      `https://music-king-server.vercel.app/users/admin/${user._id}`,
       {
         method: "PATCH",
       }
@@ -69,7 +69,7 @@ const ManageUsers = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `http://localhost:5000/users/${user._id}`,
+          `https://music-king-server.vercel.app/users/${user._id}`,
           {
             method: "DELETE",
           }

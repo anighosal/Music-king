@@ -24,7 +24,7 @@ const MySelect = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `http://localhost:5000/classes/${singleClass._id}`,
+          `https://music-king-server.vercel.app/classes/${singleClass._id}`,
           {
             method: "DELETE",
           }

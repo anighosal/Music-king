@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import InstructorCard from "./instructorCard";
+import InstructorCard from "./InstructorCard";
 
 const Instructors = () => {
   const [instructors, setInstructors] = useState([]);

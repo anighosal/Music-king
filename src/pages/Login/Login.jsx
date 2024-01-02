@@ -40,15 +40,15 @@ const Login = () => {
       <Helmet>
         <title>Music King | Login</title>
       </Helmet>
-      <div className="hero min-h-screen bg-blue-500">
+      <div className="hero  bg-slate-600">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <img src={login} alt="" />
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+          <div className="card flex-shrink-0 w-50% shadow-2xl bg-base-100 ">
+            <form onSubmit={handleSubmit(onSubmit)} className="p-4">
               <h2 className="text-center font-bold text-2xl">Please Login</h2>
-              <div className="div-control">
+              <div className="">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
@@ -82,7 +82,7 @@ const Login = () => {
               </div>
               <div className="form-control mt-6">
                 <input
-                  className="btn btn-primary"
+                  className="btn bg-slate-600 text-white"
                   type="submit"
                   value="login"
                 />

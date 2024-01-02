@@ -1,7 +1,7 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import img1 from "../../../assets/banner.webp";
+import img1 from "../../../assets/download (16).jpg";
 import img2 from "../../../assets/img2.avif";
 import img3 from "../../../assets/img3.avif";
 import "./Banner.css";

@@ -13,7 +13,8 @@ const UserHome = () => {
       />
       <h2 className="text-3xl mt-2">Name: {user.displayName}</h2>
       <h2 className="text-3xl">Email: {user.email}</h2>
-      <h2 className="text-3xl">user</h2>
+      <h2 className="text-3xl text-black">user</h2>
+     
     </div>
   );
 };

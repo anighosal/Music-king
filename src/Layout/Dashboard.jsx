@@ -27,10 +27,10 @@ const Dashboard = ({ user }) => {
           htmlFor="my-drawer-2"
           className="btn btn-primary drawer-button lg:hidden"
         >
-          Open drawer
+          
         </label>
       </div>
-      <div className="drawer-side bg-blue-600">
+      <div className="drawer-side bg-slate-600">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <Fade>
           <ul className="menu p-4 w-80 h-full  text-white">

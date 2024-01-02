@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .drawer-side a.active {
-    color: red;
+    color: orange;
   }
 
 .drawer-side a {

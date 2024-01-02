@@ -190,7 +190,7 @@ const Navbar = () => {
         )}
 
         {user ? (
-          <div className="text-black" onClick={handleLogOut}>
+          <div className="text-black cursor-pointer" onClick={handleLogOut}>
             Log out
           </div>
         ) : (
